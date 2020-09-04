@@ -20,10 +20,15 @@ public enum Keypress: String {
     case home = "HOME"
     case back = "BACK"
     case ok = "SELECT"
+    case star = "INFO"
+    case replay = "INSTANTREPLAY"
+    case play = "PLAY"
+    case fwd = "FWD"
+    case rev = "REV"
 }
 
 class Controls: NSObject {
-    let ip: String
+    var ip: String
     
     init(ip :String) {
         self.ip = ip
@@ -35,7 +40,11 @@ class Controls: NSObject {
     }
     
     private func stroke(fullRequest: String) {
-        if let url = URL(string: "http://" + ip + ":8060/" + fullRequest){
+        if !ip.contains("http") {
+            ip = "http://" + ip + ":8060/"
+        }
+
+        if let url = URL(string: ip + fullRequest){
             print(url.absoluteString)
             var req = URLRequest(url: url)
             req.httpMethod = "POST"

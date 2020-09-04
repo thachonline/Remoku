@@ -7,26 +7,29 @@
 //
 
 import UIKit
+import SSDPClient
 
 class ResolverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var discovery = ServiceDiscovery(delegate: self)
+        discovery.start()
     }
-    
-    
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ResolverViewController: SSDPDiscoveryDelegate {
+    func ssdpDiscovery(_: SSDPDiscovery, didDiscoverService: SSDPService) {
+        guard didDiscoverService.searchTarget == "roku:ecp", let loc = didDiscoverService.location else {
+            return
+        }
+        print("Found roku at \(loc)}")
+        RokuResolver.saveRoku(roku: loc)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("ROKUFOUND"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    */
-
 }

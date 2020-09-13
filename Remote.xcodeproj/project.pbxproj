@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C60E0A925057B5E005C11D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C60E0A825057B5E005C11D4 /* SettingsViewController.swift */; };
 		1C78E5C624F9BE710026FA59 /* ResolverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78E5C524F9BE710026FA59 /* ResolverViewController.swift */; };
 		1C79BB5124F88C7C00CA03C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C79BB5024F88C7C00CA03C5 /* AppDelegate.swift */; };
 		1C79BB5324F88C7C00CA03C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C79BB5224F88C7C00CA03C5 /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C60E0A825057B5E005C11D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1C78E5C524F9BE710026FA59 /* ResolverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverViewController.swift; sourceTree = "<group>"; };
 		1C79BB4D24F88C7C00CA03C5 /* Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C79BB5024F88C7C00CA03C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				1C79BB6424F88CB600CA03C5 /* Controls.swift */,
 				1C78E5C524F9BE710026FA59 /* ResolverViewController.swift */,
 				1CFE8DD224FAD2F500D48584 /* RokuResolver.swift */,
+				1C60E0A825057B5E005C11D4 /* SettingsViewController.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				1CFE8DD324FAD2F500D48584 /* RokuResolver.swift in Sources */,
 				1C79BB5524F88C7C00CA03C5 /* ViewController.swift in Sources */,
+				1C60E0A925057B5E005C11D4 /* SettingsViewController.swift in Sources */,
 				1C79BB6524F88CB600CA03C5 /* Controls.swift in Sources */,
 				1C78E5C624F9BE710026FA59 /* ResolverViewController.swift in Sources */,
 				1C79BB5124F88C7C00CA03C5 /* AppDelegate.swift in Sources */,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -95,7 +95,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="15" maxY="5"/>
-                                        <state key="normal" image="volume.1" catalog="system"/>
+                                        <state key="normal" image="speaker.wave.1" catalog="system"/>
                                         <connections>
                                             <action selector="volDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vT7-OP-eUV"/>
                                         </connections>
@@ -141,7 +141,7 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
-                                            <imageReference key="backgroundImage" image="volume.3" catalog="system" symbolScale="small"/>
+                                            <imageReference key="backgroundImage" image="speaker.wave.3" catalog="system" symbolScale="small"/>
                                         </state>
                                         <connections>
                                             <action selector="volUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hNa-Ly-hDU"/>
@@ -619,7 +619,7 @@
         <segue reference="6nv-Gc-GJA"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Image" width="256" height="256"/>
+        <image name="Image" width="359.5" height="359"/>
         <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="backward" catalog="system" width="128" height="79"/>
@@ -629,9 +629,9 @@
         <image name="playpause" catalog="system" width="128" height="83"/>
         <image name="power" catalog="system" width="128" height="124"/>
         <image name="speaker.slash.circle" catalog="system" width="128" height="121"/>
+        <image name="speaker.wave.1" catalog="system" width="128" height="108"/>
+        <image name="speaker.wave.3" catalog="system" width="128" height="86"/>
         <image name="staroflife.circle" catalog="system" width="128" height="121"/>
-        <image name="volume.1" catalog="system" width="128" height="108"/>
-        <image name="volume.3" catalog="system" width="128" height="86"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

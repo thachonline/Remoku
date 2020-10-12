@@ -101,6 +101,14 @@ class ViewController: UIViewController {
         case 2:
             // Show Channels
             channelsView.isHidden = false
+            if self.apps.count == 0 {
+                controls?.getApps(completion: { (ids) in
+                    self.apps = ids
+                    DispatchQueue.main.async {
+                        self.channelsView.reloadData()
+                    }
+                })
+            }
             break
         case 3:
             // Show keyboard
@@ -270,10 +278,10 @@ class AppCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
@@ -288,10 +296,10 @@ class AppCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 10
         
         contentView.backgroundColor = .gray
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowRadius = 1
-        contentView.layer.shadowOpacity = 1
-        contentView.layer.shadowOffset = .zero
+//        contentView.layer.shadowColor = UIColor.black.cgColor
+//        contentView.layer.shadowRadius = 1
+//        contentView.layer.shadowOpacity = 1
+//        contentView.layer.shadowOffset = .zero
     }
     
     required init?(coder: NSCoder) {

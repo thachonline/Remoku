@@ -16,6 +16,8 @@
 		1C79BB5A24F88C7C00CA03C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C79BB5924F88C7C00CA03C5 /* Assets.xcassets */; };
 		1C79BB5D24F88C7C00CA03C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C79BB5B24F88C7C00CA03C5 /* LaunchScreen.storyboard */; };
 		1C79BB6524F88CB600CA03C5 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C79BB6424F88CB600CA03C5 /* Controls.swift */; };
+		1C882300253E54D700210BA5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8822FF253E54D700210BA5 /* StoreKit.framework */; };
+		1CAFEBFE2546155100524DC7 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFEBFD2546155100524DC7 /* IAPHandler.swift */; };
 		1CFE8DD124F9DE2C00D48584 /* SSDPClient in Frameworks */ = {isa = PBXBuildFile; productRef = 1CFE8DD024F9DE2C00D48584 /* SSDPClient */; };
 		1CFE8DD324FAD2F500D48584 /* RokuResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFE8DD224FAD2F500D48584 /* RokuResolver.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		1C60E0A825057B5E005C11D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1C78E5C524F9BE710026FA59 /* ResolverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverViewController.swift; sourceTree = "<group>"; };
-		1C79BB4D24F88C7C00CA03C5 /* Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C79BB4D24F88C7C00CA03C5 /* Remoku Remote Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remoku Remote Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C79BB5024F88C7C00CA03C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C79BB5224F88C7C00CA03C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1C79BB5424F88C7C00CA03C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		1C79BB6424F88CB600CA03C5 /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
 		1C8822DE2533CFE800210BA5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1C8822E02533CFE800210BA5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1C8822FF253E54D700210BA5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1CAFEBFD2546155100524DC7 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		1CFE8DD224FAD2F500D48584 /* RokuResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RokuResolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CFE8DD124F9DE2C00D48584 /* SSDPClient in Frameworks */,
+				1C882300253E54D700210BA5 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +79,7 @@
 		1C79BB4E24F88C7C00CA03C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1C79BB4D24F88C7C00CA03C5 /* Remote.app */,
+				1C79BB4D24F88C7C00CA03C5 /* Remoku Remote Control.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 				1C78E5C524F9BE710026FA59 /* ResolverViewController.swift */,
 				1CFE8DD224FAD2F500D48584 /* RokuResolver.swift */,
 				1C60E0A825057B5E005C11D4 /* SettingsViewController.swift */,
+				1CAFEBFD2546155100524DC7 /* IAPHandler.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -100,6 +106,7 @@
 		1C8822DD2533CFE800210BA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C8822FF253E54D700210BA5 /* StoreKit.framework */,
 				1C8822DE2533CFE800210BA5 /* WidgetKit.framework */,
 				1C8822E02533CFE800210BA5 /* SwiftUI.framework */,
 			);
@@ -109,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1C79BB4C24F88C7C00CA03C5 /* Remote */ = {
+		1C79BB4C24F88C7C00CA03C5 /* Remoku Remote Control */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C79BB6124F88C7C00CA03C5 /* Build configuration list for PBXNativeTarget "Remote" */;
+			buildConfigurationList = 1C79BB6124F88C7C00CA03C5 /* Build configuration list for PBXNativeTarget "Remoku Remote Control" */;
 			buildPhases = (
 				1C79BB4924F88C7C00CA03C5 /* Sources */,
 				1C79BB4A24F88C7C00CA03C5 /* Frameworks */,
@@ -122,12 +129,12 @@
 			);
 			dependencies = (
 			);
-			name = Remote;
+			name = "Remoku Remote Control";
 			packageProductDependencies = (
 				1CFE8DD024F9DE2C00D48584 /* SSDPClient */,
 			);
 			productName = Remote;
-			productReference = 1C79BB4D24F88C7C00CA03C5 /* Remote.app */;
+			productReference = 1C79BB4D24F88C7C00CA03C5 /* Remoku Remote Control.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +152,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1C79BB4824F88C7C00CA03C5 /* Build configuration list for PBXProject "Remote" */;
+			buildConfigurationList = 1C79BB4824F88C7C00CA03C5 /* Build configuration list for PBXProject "Remoku Remote Control" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1C79BB4C24F88C7C00CA03C5 /* Remote */,
+				1C79BB4C24F88C7C00CA03C5 /* Remoku Remote Control */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +194,7 @@
 				1CFE8DD324FAD2F500D48584 /* RokuResolver.swift in Sources */,
 				1C79BB5524F88C7C00CA03C5 /* ViewController.swift in Sources */,
 				1C60E0A925057B5E005C11D4 /* SettingsViewController.swift in Sources */,
+				1CAFEBFE2546155100524DC7 /* IAPHandler.swift in Sources */,
 				1C79BB6524F88CB600CA03C5 /* Controls.swift in Sources */,
 				1C78E5C624F9BE710026FA59 /* ResolverViewController.swift in Sources */,
 				1C79BB5124F88C7C00CA03C5 /* AppDelegate.swift in Sources */,
@@ -337,12 +345,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PS9CT7L6JZ;
 				INFOPLIST_FILE = Remote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.brick.Remoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -355,12 +365,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PS9CT7L6JZ;
 				INFOPLIST_FILE = Remote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.brick.Remoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -371,7 +383,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C79BB4824F88C7C00CA03C5 /* Build configuration list for PBXProject "Remote" */ = {
+		1C79BB4824F88C7C00CA03C5 /* Build configuration list for PBXProject "Remoku Remote Control" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C79BB5F24F88C7C00CA03C5 /* Debug */,
@@ -380,7 +392,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C79BB6124F88C7C00CA03C5 /* Build configuration list for PBXNativeTarget "Remote" */ = {
+		1C79BB6124F88C7C00CA03C5 /* Build configuration list for PBXNativeTarget "Remoku Remote Control" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C79BB6224F88C7C00CA03C5 /* Debug */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class ViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class ViewController: UIViewController {
     
     let feedback = UIImpactFeedbackGenerator(style: .medium)
     
+    var attemptedToLoadPurchases = false
+    var productsForPurchase = [SKProduct]()
     var apps = [String]()
     
     override func viewDidLoad() {
@@ -35,6 +38,20 @@ class ViewController: UIViewController {
         channelsView.collectionViewLayout = UICollectionViewFlowLayout()
         textView.text = "\u{200B}"
         NotificationCenter.default.addObserver(self, selector: #selector(updateControls), name: NSNotification.Name(rawValue: "ROKUFOUND"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(savePurchase), name: NSNotification.Name(rawValue: "IAPHandlerPurchaseNotification"), object: nil)
+        // Load in app purchases
+        IAPHandler.shared.getProducts { (result) in
+            print("HERE - Finding Products")
+            self.attemptedToLoadPurchases = true
+            if let products = try? result.get() {
+                for p in products {
+                    print("Found product: \(p.productIdentifier) \(p.localizedTitle) \(p.price.floatValue)")
+                }
+                self.productsForPurchase = products
+            } else {
+                print("Could not find any products.")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +117,7 @@ class ViewController: UIViewController {
             break
         case 2:
             // Show Channels
+            validatePurchase()
             channelsView.isHidden = false
             if self.apps.count == 0 {
                 controls?.getApps(completion: { (ids) in
@@ -112,11 +130,56 @@ class ViewController: UIViewController {
             break
         case 3:
             // Show keyboard
+            validatePurchase()
             textInputView.isHidden = false
             textView.becomeFirstResponder()
             break
         default:
             break
+        }
+    }
+    
+    // Check for purchases
+    func validatePurchase() {
+        if UserDefaults.standard.bool(forKey: "Pro") {
+            return
+        }
+        
+        if attemptedToLoadPurchases && productsForPurchase.count == 0 {
+            let alert = UIAlertController(title: "Requires Pro Version", message: "Cannot connect to appstore, please try again later", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        }
+        
+        if !attemptedToLoadPurchases && productsForPurchase.count == 0 {
+            let alert = UIAlertController(title: "Requires Pro Version", message: "Still waiting to connect to appstore, please try later", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        }
+        
+        if productsForPurchase.count > 0{
+            let alert = UIAlertController(title: "Requires Pro Version", message: "Please consider supporting the developer and purchasing pro version for $\(productsForPurchase[0].price)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { (_) in
+                IAPHandler.shared.buyProduct(self.productsForPurchase[0])
+            }))
+            alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { (_) in
+                IAPHandler.shared.restorePurchases()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true)
+        }
+        
+        tabView.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "defaultTab")
+        self.tabChange("nil")
+    }
+    
+    @objc func savePurchase() {
+        print("SAVE PURCHASE")
+        if IAPHandler.shared.purchasedProductIdentifiers.count > 0 {
+            let alert = UIAlertController(title: "Pro Version Enabled", message: "Pro Version has been successfully purchased", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            UserDefaults.standard.set(true, forKey: "Pro")
         }
     }
     
